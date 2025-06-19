@@ -1,5 +1,7 @@
 # 🔗 Monitoring & Logging Project
 
+---
+
 This project is capable for:
 
   ##### 1. Adding observability to app & infrastructure.
@@ -10,7 +12,7 @@ This project is capable for:
 
   ##### 4. Export metrics from Flask with prometheus_flask_exporter.
 
-🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
+##### 🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
 
 ---
 
