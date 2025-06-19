@@ -230,5 +230,3 @@ You now have:
 
 * Metrics exposed from your Flask app using Prometheus and Grafana
 * Log collection and visualization using Fluent Bit, Elasticsearch, and Kibana
-
-Let me know if you'd like a dashboard JSON for Grafana or Fluent Bit config next!
