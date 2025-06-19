@@ -12,6 +12,8 @@ This project is capable for:
 
 🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
 
+---
+
 This guide can help anyone to build a  **separate DevOps project** for monitoring and logging a Python (Flask) app using:
 
 * Prometheus + Grafana (metrics)
