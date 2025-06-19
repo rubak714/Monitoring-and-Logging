@@ -84,7 +84,7 @@ This section explains how all the components work together to enable real-time m
 </p>
 
 <p align="center">
-  <img src="monitoring_logging2.png" alt="Monitoring and Logging Flowchart" width="500"/>
+  <img src="monitoring_logging_2.png" alt="Monitoring and Logging Flowchart" width="500"/>
 </p>
 
 ---
