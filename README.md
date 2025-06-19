@@ -2,13 +2,13 @@
 
 This project is capable for:
 
-#### Adding observability to your app & infrastructure.
+#### 1. Adding observability to app & infrastructure.
 
-#### Prometheus + Grafana for metrics.
+#### 2. Prometheus + Grafana for metrics.
 
-#### ELK Stack (Elasticsearch, Logstash, Kibana) or EFK (Fluentd) for logs.
+#### 3. ELK Stack (Elasticsearch, Logstash, Kibana) or EFK (Fluentd) for logs.
 
-#### Export metrics from Flask with prometheus_flask_exporter.
+#### 4. Export metrics from Flask with prometheus_flask_exporter.
 
 🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
 
@@ -23,13 +23,13 @@ This guide can help anyone to build a  **separate DevOps project** for monitorin
 
 # 🔗 Monitoring & Logging Architecture – Explained with Diagram
 
-This section explains how all the components work together to enable real-time monitoring and logging for your Flask app.
+This section explains how all the components work together to enable real-time monitoring and logging for user's Flask app.
 
 ---
 
 ## 🔗 What Happens Internally?
 
-1. **Flask App**: Your Python app exposes Prometheus metrics via `prometheus_flask_exporter` on port `5000/metrics`.
+1. **Flask App**: The Python app exposes Prometheus metrics via `prometheus_flask_exporter` on port `5000/metrics`.
 2. **Prometheus**: Periodically scrapes metrics from the Flask app endpoint.
 3. **Grafana**: Connects to Prometheus and visualizes those metrics on dashboards.
 4. **Fluent Bit**: Collects logs from the Flask container and sends them to Elasticsearch.
@@ -57,7 +57,7 @@ This section explains how all the components work together to enable real-time m
 * **Grafana**: Queries Prometheus to show metrics in dashboards
 * **Fluent Bit**: Acts as the log shipper
 * **Elasticsearch**: Indexes and stores log entries
-* **Kibana**: Helps you search and visualize logs from Elasticsearch
+* **Kibana**: Helps anyone search and visualize logs from Elasticsearch
 
 ---
 
@@ -238,9 +238,98 @@ Visit in browser:
 
 ---
 
+## 🔗 Export Metrics from Flask with prometheus\_flask\_exporter
+
+To make the Flask application observable, we use the `prometheus_flask_exporter` Python library. This exporter provides a ready-made `/metrics` endpoint that Prometheus can scrape.
+
+### 🔗 What It Does:
+
+* Automatically tracks HTTP request metrics like latency, request count, and error rate.
+* Exposes these metrics at `/metrics` on port 5000 (or any user defined port).
+* Allows adding custom counters, histograms, and gauges.
+
+---
+
+### 🔗 File: `app/app.py`
+
+```python
+from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
+
+app = Flask(__name__)
+
+# Default metrics for all endpoints
+metrics = PrometheusMetrics(app)
+
+# Optional: group endpoints by function name
+metrics.info('app_info', 'Application info', version='1.0.0')
+
+@app.route('/')
+def home():
+    return "Hello from Flask with Prometheus!"
+
+@app.route('/api/data')
+def data():
+    return {"data": "Some useful data"}
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+---
+
+### 🔗 File: `prometheus/prometheus.yml`
+
+Make sure Prometheus is configured to scrape the Flask app:
+
+```yaml
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'flask_app'
+    static_configs:
+      - targets: ['flask:5000']
+```
+
+---
+
+### 🔗 Access Metrics
+
+Once the containers are up, user can access:
+
+* The metrics endpoint at: [http://localhost:5000/metrics](http://localhost:5000/metrics)
+* Prometheus UI at: [http://localhost:9090](http://localhost:9090)
+* Use queries like `http_server_requests_total` in Prometheus
+* Connect Grafana to Prometheus and build dashboards using these metrics
+
+---
+
+### Add Custom Metrics (Optional)
+
+User can add custom counters or histograms like this:
+
+```python
+from prometheus_client import Counter
+
+endpoint_hits = Counter('endpoint_hits', 'Number of hits to /api/data')
+
+@app.route('/api/data')
+def data():
+    endpoint_hits.inc()
+    return {"data": "Some useful data"}
+```
+
+This gives full control to monitor important custom logic in app.
+
+---
+
+So, here is full metric observability from Flask app using `prometheus_flask_exporter`!
+
+
 ## 🔗 Summary
 
 Completed Activities:
 
-* Metrics exposed from your Flask app using Prometheus and Grafana
-* Log collection and visualization using Fluent Bit, Elasticsearch, and Kibana
+* Metrics exposed from user's Flask app using Prometheus and Grafana
+* Log collection and visualization using Fluent Bit, Elasticsearch and Kibana
