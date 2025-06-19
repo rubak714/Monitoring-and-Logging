@@ -79,8 +79,13 @@ This section explains how all the components work together to enable real-time m
 
 ---
 
-![Monitoring and Logging Image](monitoring_logging.png)
-![Monitoring and Logging Flowchart](monitoring_logging2.png)
+<p align="center">
+  <img src="monitoring_logging.png" alt="Monitoring and Logging Image" width="500"/>
+</p>
+
+<p align="center">
+  <img src="monitoring_logging2.png" alt="Monitoring and Logging Flowchart" width="500"/>
+</p>
 
 ---
 
