@@ -2,13 +2,13 @@
 
 This project is capable for:
 
-#### 1. Adding observability to app & infrastructure.
+  ##### 1. Adding observability to app & infrastructure.
 
-#### 2. Prometheus + Grafana for metrics.
+  ##### 2. Prometheus + Grafana for metrics.
 
-#### 3. ELK Stack (Elasticsearch, Logstash, Kibana) or EFK (Fluentd) for logs.
+  ##### 3. ELK Stack (Elasticsearch, Logstash, Kibana) or EFK (Fluentd) for logs.
 
-#### 4. Export metrics from Flask with prometheus_flask_exporter.
+  ##### 4. Export metrics from Flask with prometheus_flask_exporter.
 
 🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
 
