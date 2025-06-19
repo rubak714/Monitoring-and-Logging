@@ -1,6 +1,18 @@
 # 🔗 Monitoring & Logging Project
 
-This guide helps you create a **separate DevOps project** for monitoring and logging a Python (Flask) app using:
+This project is capable for:
+
+#### Adding observability to your app & infrastructure.
+
+#### Prometheus + Grafana for metrics.
+
+#### ELK Stack (Elasticsearch, Logstash, Kibana) or EFK (Fluentd) for logs.
+
+#### Export metrics from Flask with prometheus_flask_exporter.
+
+🔗 Tools: Prometheus, Grafana, ELK, Fluent Bit
+
+This guide can help anyone to build a  **separate DevOps project** for monitoring and logging a Python (Flask) app using:
 
 * Prometheus + Grafana (metrics)
 * EFK (Fluent Bit, Elasticsearch, Kibana) for logging
@@ -226,7 +238,7 @@ Visit in browser:
 
 ## 🔗 Summary
 
-You now have:
+Completed Activities:
 
 * Metrics exposed from your Flask app using Prometheus and Grafana
 * Log collection and visualization using Fluent Bit, Elasticsearch, and Kibana
