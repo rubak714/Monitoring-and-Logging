@@ -95,13 +95,25 @@ This section explains how all the components work together to enable real-time m
 
 ---
 
+## 🔗 Visual Representations of Monitoring and Logging
+
+The first diagram below highlights the conceptual overview of integrating monitoring and logging systems. It illustrates the core components, their roles and how they interact in a typical DevOps environment.
+
 <p align="center">
   <img src="monitoring_logging.png" alt="Monitoring and Logging Image" width="500"/>
 </p>
 
+This image clarifies the distinction and cooperation between monitoring tools (like Prometheus and Grafana) and logging tools (such as ELK stack).
+
+---
+
+The second diagram shows the detailed workflow of data collection, processing and visualization. It maps out how logs and metrics travel from applications through various tools before being displayed on dashboards.
+
 <p align="center">
   <img src="monitoring_logging_2.png" alt="Monitoring and Logging Flowchart" width="500"/>
 </p>
+
+This flowchart helped visualize the full pipeline, making it easier to understand where each tool fits and how they can be configured in a real-world monitoring and logging architecture.
 
 ---
 
