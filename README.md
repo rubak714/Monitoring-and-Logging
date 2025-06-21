@@ -107,10 +107,10 @@ This image clarifies the distinction and cooperation between monitoring tools (l
 
 ---
 
-The second diagram shows the detailed workflow of data collection, processing and visualization. It maps out how logs and metrics travel from applications through various tools before being displayed on dashboards.
+The second diagram shows the detailed workflow of data processing and visualization. It maps out how logs and metrics travel from applications through various tools before being displayed on dashboards.
 
 <p align="center">
-  <img src="monitoring_logging_2.png" alt="Monitoring and Logging Flowchart" width="500"/>
+  <img src="monitoring_logging_2.png" alt="Monitoring and Logging Flowchart" width="400"/>
 </p>
 
 This flowchart helped visualize the full pipeline, making it easier to understand where each tool fits and how they can be configured in a real-world monitoring and logging architecture.
